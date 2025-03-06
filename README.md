@@ -24,4 +24,19 @@ LANG="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 ```
 
+然后执行
+```sh
+sed -i "s|bind_user == 'True'|bind_user == 'XXXX'|" /www/server/panel/BTPanel/static/js/index.js
+rm -f /www/server/panel/data/bind.pl
+
+```
+
+即可不需要绑定了。
+
+如果要恢复执行
+```
+sed -i "s|if (bind_user == 'REMOVED') {|if (bind_user == 'True') {|g" /www/server/panel/BTPanel/static/js/index.js
+
+```
+
 修改后保存文件，重启VPS即可。
